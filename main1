@@ -3,6 +3,8 @@
 #Aiden Krahn
 #Started February 28th
 #----------------------
+
+=======
 import random
 #lists of countries-
 #DO NOT LOOK AT CODE BEFORE PLAYING
@@ -22,3 +24,286 @@ frenchguiana = [1, 12, "star(s), triangles", 'frenchguiana']
 suriname = [1, 13, "star(s), stripes", 'guyana']
 listofcountries = ["bolivia", "chile", "peru", "brazil", "argentina", "uruguay",
                    "paraguay", "venezuela", "colombia", "ecuador", "guyana", "frenchguiana", "suriname"]
+
+
+#definitions
+def hint(country):
+    que = random.randint(1, 2)
+    if que == 1:
+        print("This countries flag contains--",country[2])
+        #more hints will be added in the future: corresponding list elements will also be added
+    elif que == 2:
+        print("This country is near--", country[3])
+    
+def antihint():
+    pass
+    
+def event():
+    global location
+    global witwics
+    if location == witwics:
+        print("After searching around, you managed to track down a criminal hiding in an abandoned building...")
+        print("It was Carmen Sandiego!")
+        print("Now that you caught her, you can go home and eat cake*.")
+        print("*cake not provided")
+        play = False
+        
+    elif location != witwics:
+        print("After searching around, you managed to track down a criminal hiding in an abandoned building...")
+        print("It was an impostor! (sus)")
+        print("You caught the impostor, and now they agreed to give you a hint to Carmen's whereabouts...")
+        hint(witwics)
+        print("Keep searching!")
+    
+def country_choose():
+    global country
+    global witwics
+    roll = random.randint(0, 12)
+    vcountry = listofcountries[roll]#v. stands for varsol
+    if vcountry == "bolivia":
+        country_choose()
+    
+    elif vcountry == "chile":
+        witwics = chile
+        
+    elif vcountry == "peru":
+        witwics = peru
+        
+    elif vcountry == "brazil":
+        witwics = brazil
+        
+    elif vcountry == "argentina":
+        witwics = argentina
+        
+    elif vcountry == "uruguay":
+        witwics = uruguay
+        
+    elif vcountry == "paraguay":
+        witwics = paraguay
+        
+    elif vcountry == "venezuela":
+        witwics = venezuela
+        
+    elif vcountry == "colombia":
+        witwics = colombia
+        
+    elif vcountry == "ecuador":
+        witwics = ecuador
+        
+    elif vcountry == "guyana":
+        witwics = guyana
+        
+    elif vcountry == "frenchguiana":
+        witwics = frenchguiana
+        
+    elif vcountry == "suriname":
+        witwics = suriname
+        
+    return witwics
+    
+def fly(coward):
+    global days
+    global location
+    location = coward
+    days += coward[0]
+    return location
+    return days
+    
+def geographygarble(lratio):
+    if lratio[1] == 1:
+        brazil[0] = 1
+        paraguay[0] = 1
+        argentina[0] = 1
+        chile[0] = 1
+        peru[0] = 1
+        ecuador[0] = 2
+        colombia[0] = 3
+        venezuela[0] = 2
+        guyana[0] = 3
+        suriname[0] = 2
+        frenchguiana[0] = 2
+        uruguay[0] = 2
+        bolivia[0] = 0
+        
+    elif lratio[1] == 2:
+        argentina[0] = 1
+        bolivia[0] = 1
+        peru[0] = 1
+        ecuador[0] = 2
+        colombia[0] = 3
+        venezuela[0] = 3
+        guyana[0] = 3
+        suriname[0] = 3
+        frenchguiana[0] = 3
+        paraguay[0] = 2
+        brazil[0] = 3
+        uruguay[0] = 2
+        chile[0] = 0
+        
+    elif lratio[1] == 3:
+        ecuador[0] = 1
+        colombia[0] = 1
+        venezuela[0] = 2
+        guyana[0] = 2
+        suriname[0] = 3
+        frenchguiana[0] = 3
+        brazil[0] = 1
+        bolivia[0] = 1
+        chile[0] = 1
+        argentina[0] = 2
+        uruguay[0] = 3
+        paraguay[0] = 2
+        peru[0] = 0
+        
+    elif lratio[1] == 4:
+        frenchguiana[0] = 1
+        guyana[0] = 1
+        suriname[0] = 1
+        venezuela[0] = 1
+        colombia[0] = 1
+        ecuador[0] = 2
+        peru[0] = 1
+        bolivia[0] = 1
+        paraguay[0] = 1
+        uruguay[0] = 1
+        argentina[0] = 1
+        chile[0] = 2
+        brazil[0] = 0
+        
+    elif lratio[1] == 5:
+        chile[0] = 1
+        bolivia[0] = 1
+        paraguay[0] = 1
+        uruguay[0] = 1
+        peru[0] = 2
+        brazil[0] = 1
+        ecuador[0] = 3
+        colombia[0] = 3
+        venezuela[0] = 3
+        guyana[0] = 3
+        frenchguiana[0] = 3
+        suriname[0] = 3
+        argentina[0] = 0
+        
+    elif lratio[1] == 6:
+        argentina[0] = 1
+        brazil[0] = 1
+        chile[0]= 2
+        bolivia[0] = 2
+        peru[0] = 3
+        ecuador[0] = 3
+        colombia[0] = 3
+        venezuela[0] = 3
+        guyana[0] = 3
+        frenchguiana[0]  = 3
+        suriname[0] = 3
+        paraguay[0] = 2
+        uruguay[0] = 0
+        
+    elif lratio[1] == 7:
+        bolivia[0] = 1
+        argentina[0] = 1
+        brazil[0] = 1
+        uruguay[0] = 2
+        chile[0] = 2
+        peru[0] = 3
+        ecuador[0] = 3
+        colombia[0] = 3
+        venezuela[0] = 3
+        guyana[0] = 3
+        frenchguiana[0] = 3
+        suriname[0] = 3
+        paraguay[0] = 0
+        
+    elif lratio[1] == 8:
+        guyana[0] = 1
+        brazil[0] = 1
+        colombia[0] = 1
+        suriname[0] = 2
+        frenchguiana[0] = 2
+        ecuador[0] = 2
+        peru[0] = 2
+        bolivia[0] = 3
+        paraguay[0] = 3
+        uruguay[0] = 3
+        argentina[0] = 3
+        chile[0] = 3
+        venezuela[0] = 0
+        
+    elif lratio[1] == 9:
+        venezuela[0] = 1
+        ecuador[0] = 1
+        peru[0] = 1
+        brazil[0] = 1
+        guyana[0] = 2
+        suriname[0] = 2
+        frenchguiana[0] = 3
+        bolivia[0] = 2
+        chile[0] = 3
+        argentina[0] = 3
+        paraguay[0] = 3
+        uruguay[0] = 3
+        colombia[0] = 0
+        
+    elif lratio[1] == 10:
+        peru[0] = 1
+        colombia[0] = 1
+        venezuela[0] = 1
+        guyana[0] = 2
+        suriname[0] = 2
+        frenchguiana[0] = 3
+        brazil[0] = 2
+        bolivia[0] = 2
+        chile[0] = 2
+        argentina[0] = 3
+        paraguay[0] = 3
+        uruguay[0] = 3
+        ecuador[0] = 0
+        
+    elif lratio[1] == 11:
+        suriname[0] = 1
+        frenchguiana[0] = 1
+        venezuela[0] = 1
+        colombia[0] = 1
+        ecuador[0] = 2
+        brazil[0] = 1
+        bolivia[0] = 2
+        peru[0] = 2
+        paraguay[0] = 2
+        uruguay[0] = 3
+        argentina[0] = 3
+        chile[0] = 3
+        guyana[0] = 0
+        
+    elif lratio[1] == 12:
+        guyana[0] = 1
+        suriname[0] = 1
+        brazil[0] = 1
+        venezuela[0] = 1
+        colombia[0] = 2
+        ecuador[0] = 2
+        peru[0] = 3
+        bolivia[0] = 2
+        paraguay[0] = 2
+        uruguay[0] = 3
+        argentina[0] = 3
+        chile[0] = 3
+        frenchguiana[0]
+        
+    elif lratio[1] == 13:
+        guyana[0] = 1
+        frenchguiana[0] = 1
+        brazil[0] = 1
+        venezuela[0] = 1
+        colombia[0] = 2
+        ecuador[0] = 3
+        peru[0] = 3
+        bolivia[0] = 2
+        paraguay[0] = 2
+        uruguay[0] = 3
+        argentina[0] = 3
+        chile[0] = 3
+        suriname[0] = 0
+        
+
+
