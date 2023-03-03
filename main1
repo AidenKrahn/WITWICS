@@ -4,7 +4,7 @@
 #Started February 28th
 #----------------------
 
-=======
+
 import random
 #lists of countries-
 #DO NOT LOOK AT CODE BEFORE PLAYING
@@ -24,7 +24,6 @@ frenchguiana = [1, 12, "star(s), triangles", 'frenchguiana']
 suriname = [1, 13, "star(s), stripes", 'guyana']
 listofcountries = ["bolivia", "chile", "peru", "brazil", "argentina", "uruguay",
                    "paraguay", "venezuela", "colombia", "ecuador", "guyana", "frenchguiana", "suriname"]
-
 
 #definitions
 def hint(country):
@@ -305,5 +304,131 @@ def geographygarble(lratio):
         chile[0] = 3
         suriname[0] = 0
         
+#main code---
 
+print("Carmen Sandiego is somewhere in South America!")
+print("It is your job as a detective to find clues about Carmen Sandiego's whereabouts.")
+print("She could be hiding in", listofcountries)
+print("We have a few clues as to where Carmen Sandiego is hiding.")
+print("You are currently in Bolivia")
+print("You have 7 days to find her.")
+print("If you find her, there will be cake.")
 
+#clues are split up into types:
+#how much information they give(lots, not much, and cannonball)
+#what kind of information they give(so I don't have to write 5000 sentences, just 100.
+#flag hints, location based, political specifics, population
+witwics = brazil
+location = bolivia
+country_choose()
+play = True
+days = 0
+geographygarble(location)
+hint(witwics)
+while play == True:
+    if location == witwics:
+        break
+    
+    geographygarble(location)
+    action = input("Where do you think she is?  ")
+    
+    if days < 7:
+        
+        if action == "bolivia":
+            print("You flew to Bolivia")
+            fly(bolivia)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'argentina':
+            print("You flew to Argentina")
+            fly(argentina)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'ecuador':
+            print("You flew to Ecuador")
+            fly(ecuador)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'brazil':
+            print("You flew to Brazil")
+            fly(brazil)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'suriname':
+            print("You flew to Suriname")
+            fly(suriname)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'frenchguiana':
+            print("You flew to French Guiana")
+            fly(frenchguiana)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'guyana':
+            print("You flew to Guyana")
+            fly(guyana)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'chile':
+            print("You flew to Chile")
+            fly(chile)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'peru':
+            print("You flew to Peru")
+            fly(peru)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'paraguay':
+            print("You flew to Paraguay")
+            fly(paraguay)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'uruguay':
+            print("You flew to Uruguay")
+            fly(uruguay)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'venezuela':
+            print("You flew to Venezuela")
+            fly(venezuela)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+        elif action == 'colombia':
+            print("You flew to Colombia")
+            fly(colombia)
+            geographygarble(location)
+            print(f"Days Left =", 7 - days)
+            event()
+            
+    elif days >= 7:
+        print("You ran out of time.")
+        print("You failed, Carmen got away, and you're bad at geography.")
+        print("You got fired, your wife left you.")
+        print("You're homeless. A dog peed on you.")
+        print("Better luck next time!")
+        play = False
