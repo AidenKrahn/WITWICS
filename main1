@@ -1,41 +1,100 @@
+
+
 #---------------------
 #Carmen Sandiego
 #Aiden Krahn
 #Started February 28th
 #----------------------
-
-
 import random
 #lists of countries-
 #DO NOT LOOK AT CODE BEFORE PLAYING
 #IT WILL SPOIL HINTS THAT YOU GET THROUGHOUT THE GAME
-bolivia = [1, 1, "stripes, a crest", "paraguay"]
-chile = [3, 2 ,"star(s), French colours", 'argentina']
-peru = [3, 3, "stripes, a crest", 'ecuador']
-brazil = [0, 4, "star(s), blue", 'venezuela']
-argentina = [2, 5, "stripes, blue", 'chile']
-uruguay = [2, 6, "stripes, blue", 'paraguay']
-paraguay = [1, 7, "stripes, a crest", 'uruguay']
-venezuela = [1, 8, "stars, a crest", 'bolivia']
-colombia = [1, 9, "stripes, blue", 'venezuela']
-ecuador = [2, 10, "stripes, a crest", 'peru']
-guyana = [1, 11, "triangles, green", 'colombia']
-frenchguiana = [1, 12, "star(s), triangles", 'frenchguiana']
-suriname = [1, 13, "star(s), stripes", 'guyana']
+bolivia = [1, 1, "stripes, a crest", "paraguay", "natural gas", "12 million", "Valle de La Luna"]
+chile = [3, 2 ,"star(s), French colours", 'argentina', "copper and fish", "19.5 million", "Easter Island"]
+peru = [3, 3, "stripes, a crest", 'ecuador', 'coffee', "33.7 million", "Machu Picchu"]
+brazil = [0, 4, "star(s), blue", 'venezuela', 'soy beans and sugar', "214.3 million", "Christ the Redeemer"]
+argentina = [2, 5, "stripes, blue", 'chile', 'soy beans and corn', "45.8 million", "Bariloche"]
+uruguay = [2, 6, "stripes, blue", 'paraguay', 'meat and pharmaceuticals', "3.4 million", "Fingers of Punta del Este"]
+paraguay = [1, 7, "stripes, a crest", 'uruguay', 'soy beans, soy oil', "6.7 million", "Monday Falls"]
+venezuela = [1, 8, "stars, a crest", 'bolivia', 'steel, aluminum', "28.2 million", "Angel Falls"]
+colombia = [1, 9, "stripes, blue", 'venezuela', 'natural gas, coffee', "51.5 million", "Salt Cathedral"]
+ecuador = [2, 10, "stripes, a crest", 'peru', 'shrimp, bananas', "17.8 million", "Middle of the World City"]
+guyana = [1, 11, "triangles, green", 'colombia', 'oil, gold', ".8 million", "Kaieteur Falls"]
+frenchguiana = [1, 12, "star(s), triangles", 'guyana', 'shrimp, gold', ".3 million", "Devil's Island"]
+suriname = [1, 13, "star(s), stripes", 'guyana', 'rice, bananas', ".6 million", "Jodensavanne"]
 listofcountries = ["bolivia", "chile", "peru", "brazil", "argentina", "uruguay",
                    "paraguay", "venezuela", "colombia", "ecuador", "guyana", "frenchguiana", "suriname"]
+fakecountry = [17]
+listofcountriespart2 = [bolivia, chile, peru, brazil, argentina, uruguay,
+                   paraguay, venezuela, colombia, ecuador, guyana, frenchguiana, suriname]
 
 #definitions
 def hint(country):
-    que = random.randint(1, 2)
+    que = random.randint(1, 6)
     if que == 1:
         print("This countries flag contains--",country[2])
         #more hints will be added in the future: corresponding list elements will also be added
     elif que == 2:
         print("This country is near--", country[3])
+        
+    elif que == 3:
+        print("This country exports--", country[4])
+        
+    elif que == 4:
+        print("This country has this many people--", country[5])
+        
+    elif que == 5:
+        antihint()
+        
+    elif que == 6:
+        print("The countries landmark is--", country[6])
+
     
 def antihint():
-    pass
+    global witwics
+    crazy = random.randint(1, 13)
+    if crazy == witwics[1]:
+        antihint
+    
+    elif crazy == 1:
+        print("Carmen Sandiego is not in Bolivia")
+        
+    elif crazy == 2:
+        print("Carmen Sandiego is not in Chile")
+        
+    elif crazy == 3:
+        print("Carmen Sandiego is not in Peru")
+        
+    elif crazy == 4:
+        print("Carmen Sandiego is not in Brazil")
+        
+    elif crazy == 5:
+        print("Carmen Sandiego is not in Argentina")
+        
+    elif crazy == 6:
+        print("Carmen Sandiego is not in Uruguay")
+        
+    elif crazy == 7:
+        print("Carmen Sandiego is not in Paraguay")
+        
+    elif crazy == 8:
+        print("Carmen Sandiego is not in Venezuela")
+        
+    elif crazy == 9:
+        print("Carmen Sandiego is not in Colombia")
+        
+    elif crazy == 10:
+        print("Carmen Sandiego is not in Ecuador")
+        
+    elif crazy == 11:
+        print("Carmen Sandiego is not in Guyana")
+        
+    elif crazy == 12:
+        print("Carmen Sandiego is not in French Guiana")
+        
+    elif crazy == 13:
+        print("Carmen Sandiego is not in Suriname")
+    
     
 def event():
     global location
@@ -60,7 +119,7 @@ def country_choose():
     roll = random.randint(0, 12)
     vcountry = listofcountries[roll]#v. stands for varsol
     if vcountry == "bolivia":
-        country_choose()
+        witwics == bolivia
     
     elif vcountry == "chile":
         witwics = chile
@@ -98,7 +157,11 @@ def country_choose():
     elif vcountry == "suriname":
         witwics = suriname
         
+    if witwics == location:
+        country_choose()
+        
     return witwics
+
     
 def fly(coward):
     global days
@@ -304,13 +367,16 @@ def geographygarble(lratio):
         chile[0] = 3
         suriname[0] = 0
         
+        
 #main code---
+coolerdaniel = random.randint(0, 12)
+location = listofcountriespart2[coolerdaniel]
 
 print("Carmen Sandiego is somewhere in South America!")
 print("It is your job as a detective to find clues about Carmen Sandiego's whereabouts.")
 print("She could be hiding in", listofcountries)
 print("We have a few clues as to where Carmen Sandiego is hiding.")
-print("You are currently in Bolivia")
+print(f"You are currently in {listofcountries[coolerdaniel]}")
 print("You have 7 days to find her.")
 print("If you find her, there will be cake.")
 
@@ -318,8 +384,7 @@ print("If you find her, there will be cake.")
 #how much information they give(lots, not much, and cannonball)
 #what kind of information they give(so I don't have to write 5000 sentences, just 100.
 #flag hints, location based, political specifics, population
-witwics = brazil
-location = bolivia
+witwics = fakecountry
 country_choose()
 play = True
 days = 0
@@ -432,3 +497,5 @@ while play == True:
         print("You're homeless. A dog peed on you.")
         print("Better luck next time!")
         play = False
+
+
