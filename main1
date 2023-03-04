@@ -105,14 +105,14 @@ def event():
         print("Now that you caught her, you can go home and eat cake*.")
         print("*cake not provided")
         play = False
-        
+        #whether or not you catch Carmen Sandiego
     elif location != witwics:
         print("After searching around, you managed to track down a criminal hiding in an abandoned building...")
         print("It was an impostor! (sus)")
         print("You caught the impostor, and now they agreed to give you a hint to Carmen's whereabouts...")
         hint(witwics)
         print("Keep searching!")
-    
+    #if I wanted to be accurate, I could've added more here
 def country_choose():
     global country
     global witwics
@@ -171,8 +171,8 @@ def fly(coward):
     return location
     return days
     
-def geographygarble(lratio):
-    if lratio[1] == 1:
+def geographygarble(lratio):#determines how long it takes 
+    if lratio[1] == 1:#you to fly based on where you are and where you go
         brazil[0] = 1
         paraguay[0] = 1
         argentina[0] = 1
@@ -371,7 +371,7 @@ def geographygarble(lratio):
 #main code---
 coolerdaniel = random.randint(0, 12)
 location = listofcountriespart2[coolerdaniel]
-
+#determine starting location
 print("Carmen Sandiego is somewhere in South America!")
 print("It is your job as a detective to find clues about Carmen Sandiego's whereabouts.")
 print("She could be hiding in", listofcountries)
@@ -385,7 +385,7 @@ print("If you find her, there will be cake.")
 #what kind of information they give(so I don't have to write 5000 sentences, just 100.
 #flag hints, location based, political specifics, population
 witwics = fakecountry
-country_choose()
+country_choose()#chooses where Carmen is
 play = True
 days = 0
 geographygarble(location)
@@ -394,11 +394,11 @@ while play == True:
     if location == witwics:
         break
     
-    geographygarble(location)
+    geographygarble(location)#calculate distances between your current location and other countries
     action = input("Where do you think she is?  ")
     
     if days < 7:
-        
+        #flying to different countries
         if action == "bolivia":
             print("You flew to Bolivia")
             fly(bolivia)
@@ -490,7 +490,7 @@ while play == True:
             print(f"Days Left =", 7 - days)
             event()
             
-    elif days >= 7:
+    elif days >= 7:#lose condition
         print("You ran out of time.")
         print("You failed, Carmen got away, and you're bad at geography.")
         print("You got fired, your wife left you.")
